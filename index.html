@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8fb" />
+    <title>Orbit — Agent workspace</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235d64f2'/%3E%3Cpath d='M16 6l4 4-4 4-4-4 4-4zm-6 6l4 4-4 4-4-4 4-4zm12 0l4 4-4 4-4-4 4-4zm-6 6l4 4-4 4-4-4 4-4z' fill='%23fff'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div>
+            <div class="brand-name">orbit</div>
+            <div class="brand-subtitle">agent studio</div>
+          </div>
+        </div>
+
+        <button class="workspace-switcher" type="button" data-toast="Workspace switcher is ready for multiple repos.">
+          <span class="workspace-avatar">C</span>
+          <span class="workspace-copy">
+            <strong>checkout-app</strong>
+            <small>Personal workspace</small>
+          </span>
+          <span class="chevron">⌄</span>
+        </button>
+
+        <nav class="primary-nav" aria-label="Main navigation">
+          <div class="nav-label">Workspace</div>
+          <button class="nav-item active" type="button" data-view="Overview">
+            <span class="nav-icon">◈</span><span>Overview</span><span class="nav-count">1</span>
+          </button>
+          <button class="nav-item" type="button" data-view="Assignments">
+            <span class="nav-icon">◎</span><span>Assignments</span>
+          </button>
+          <button class="nav-item" type="button" data-view="Models">
+            <span class="nav-icon">✣</span><span>Models</span>
+          </button>
+
+          <div class="nav-label nav-label-spaced">Resources</div>
+          <button class="nav-item" type="button" data-view="Files">
+            <span class="nav-icon">⌁</span><span>Files</span>
+          </button>
+          <button class="nav-item" type="button" data-view="Activity">
+            <span class="nav-icon">◌</span><span>Activity</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+
+        <div class="usage-card">
+          <div class="usage-topline"><span>Monthly usage</span><span>68%</span></div>
+          <div class="usage-track"><span style="width: 68%"></span></div>
+          <div class="usage-meta"><span>342k tokens used</span><span>500k</span></div>
+        </div>
+
+        <button class="profile-row" type="button" data-toast="Account settings will live here.">
+          <span class="profile-avatar">TM</span>
+          <span class="profile-copy"><strong>Timon</strong><small>Free plan</small></span>
+          <span class="more">•••</span>
+        </button>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Workspace</span><span class="slash">/</span><strong>Overview</strong></div>
+          <div class="topbar-actions">
+            <button class="command-button" type="button" data-toast="Command palette coming soon."><span>⌘</span> Command <kbd>K</kbd></button>
+            <button class="icon-button" type="button" aria-label="Notifications" data-toast="You are all caught up.">◔<span class="notification-dot"></span></button>
+            <span class="topbar-avatar">TM</span>
+          </div>
+        </header>
+
+        <section class="page-content">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="live-dot"></span> Agent workspace <span class="eyebrow-divider">•</span> Live run #4821</div>
+              <h1>Checkout flow refactor</h1>
+              <p>Coordinate specialized agents, keep their context tight, and ship with confidence.</p>
+            </div>
+            <div class="heading-actions">
+              <button class="secondary-button" type="button" data-toast="Assignment history opened."><span>↗</span> View history</button>
+              <button class="primary-button" id="new-assignment-button" type="button"><span>＋</span> New assignment</button>
+            </div>
+          </div>
+
+          <div class="stat-grid">
+            <article class="stat-card">
+              <div class="stat-icon indigo">✣</div>
+              <div class="stat-copy"><span>Agents active</span><strong>4</strong></div>
+              <span class="stat-trend positive">+2 today</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon coral">⌁</div>
+              <div class="stat-copy"><span>Tokens this run</span><strong id="run-token-total">18.6k</strong></div>
+              <span class="stat-trend">of 42k budget</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon mint">↗</div>
+              <div class="stat-copy"><span>Est. run cost</span><strong>$0.64</strong></div>
+              <span class="stat-trend positive">−18% vs avg</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon gold">✓</div>
+              <div class="stat-copy"><span>Checks passed</span><strong>12 / 14</strong></div>
+              <span class="stat-trend warning">2 pending</span>
+            </article>
+          </div>
+
+          <div class="workspace-grid">
+            <section class="left-column">
+              <article class="panel pipeline-panel">
+                <div class="panel-heading">
+                  <div>
+                    <div class="section-kicker">Delegation pipeline</div>
+                    <h2>Agents working in sequence</h2>
+                  </div>
+                  <div class="panel-heading-actions">
+                    <span class="run-status"><span class="pulse"></span> Running</span>
+                    <button class="icon-button small" type="button" aria-label="Pipeline options" data-toast="Pipeline options opened.">•••</button>
+                  </div>
+                </div>
+
+                <div class="pipeline-canvas">
+                  <div class="pipeline-line" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                  <button class="agent-card completed" type="button" data-agent="architect">
+                    <div class="agent-card-topline"><span class="agent-avatar plum">A</span><span class="agent-state done">Done</span></div>
+                    <div class="agent-card-main"><strong>Architect</strong><span>Claude 3.7 Sonnet</span></div>
+                    <p>Mapped payment states and proposed a safe migration plan.</p>
+                    <div class="agent-card-footer"><span>8.2k / 8k tokens</span><span class="checkmark">✓</span></div>
+                  </button>
+
+                  <button class="agent-card active-agent selected" type="button" data-agent="builder">
+                    <div class="agent-card-topline"><span class="agent-avatar cobalt">B</span><span class="agent-state running"><span class="mini-pulse"></span> Working</span></div>
+                    <div class="agent-card-main"><strong>Builder</strong><span>Codex · gpt-5</span></div>
+                    <p>Implementing the validation layer across checkout forms.</p>
+                    <div class="agent-progress"><span style="width: 58%"></span></div>
+                    <div class="agent-card-footer"><span>11.4k / 24k tokens</span><span class="progress-value">58%</span></div>
+                  </button>
+
+                  <button class="agent-card" type="button" data-agent="reviewer">
+                    <div class="agent-card-topline"><span class="agent-avatar orange">R</span><span class="agent-state queued">Queued</span></div>
+                    <div class="agent-card-main"><strong>Reviewer</strong><span>Gemini 2.5 Pro</span></div>
+                    <p>Will inspect the diff for regressions and missing edge cases.</p>
+                    <div class="agent-card-footer"><span>6k token budget</span><span class="queue-icon">◷</span></div>
+                  </button>
+
+                  <button class="agent-card" type="button" data-agent="tester">
+                    <div class="agent-card-topline"><span class="agent-avatar green">T</span><span class="agent-state queued">Queued</span></div>
+                    <div class="agent-card-main"><strong>Test runner</strong><span>Local · Qwen 3</span></div>
+                    <p>Will run the suite locally and summarize any failures.</p>
+                    <div class="agent-card-footer"><span>4k token budget</span><span class="queue-icon">◷</span></div>
+                  </button>
+                </div>
+
+                <div class="pipeline-footer">
+                  <div class="footer-caption"><span class="tiny-flow-icon">↳</span> Each agent receives the prior output plus scoped files.</div>
+                  <button class="text-button" type="button" data-toast="Pipeline builder opened.">Edit pipeline <span>→</span></button>
+                </div>
+              </article>
+
+              <article class="panel activity-panel">
+                <div class="panel-heading compact-heading">
+                  <div><div class="section-kicker">Activity</div><h2>Live run feed</h2></div>
+                  <button class="text-button" type="button" data-toast="Showing all activity.">View all <span>→</span></button>
+                </div>
+                <div class="activity-feed" id="activity-feed">
+                  <div class="activity-item">
+                    <span class="feed-avatar cobalt">B</span>
+                    <div class="activity-copy"><strong>Builder</strong><span>updated <code>src/checkout/validate.ts</code></span><small>just now</small></div>
+                    <span class="activity-badge file">FILE</span>
+                  </div>
+                  <div class="activity-item">
+                    <span class="feed-avatar plum">A</span>
+                    <div class="activity-copy"><strong>Architect</strong><span>handed off a 4-step implementation plan</span><small>2 min ago</small></div>
+                    <span class="activity-badge plan">PLAN</span>
+                  </div>
+                  <div class="activity-item">
+                    <span class="feed-avatar green">T</span>
+                    <div class="activity-copy"><strong>Test runner</strong><span>connected to local workspace</span><small>3 min ago</small></div>
+                    <span class="activity-badge system">SYSTEM</span>
+                  </div>
+                </div>
+                <form class="swarm-composer" id="swarm-composer">
+                  <span class="composer-spark">✦</span>
+                  <input id="swarm-input" type="text" placeholder="Message the swarm or add context..." autocomplete="off" />
+                  <button type="submit" aria-label="Send message">↑</button>
+                </form>
+              </article>
+            </section>
+
+            <aside class="right-column">
+              <article class="panel inspector-panel">
+                <div class="inspector-heading"><div><div class="section-kicker">Assignment inspector</div><h2 id="inspector-title">Builder</h2></div><span class="inspector-status">Active</span></div>
+                <div class="selected-agent-summary"><span class="agent-avatar cobalt large" id="inspector-avatar">B</span><div><strong id="inspector-model">Codex · gpt-5</strong><span id="inspector-description">Writes and edits production code</span></div><button class="icon-button small" type="button" aria-label="More agent options" data-toast="Agent options opened.">•••</button></div>
+
+                <div class="inspector-section">
+                  <div class="field-label"><span>Routing policy</span><button class="info-button" type="button" data-toast="Routing policies balance speed, quality, and cost.">?</button></div>
+                  <div class="segmented-control" id="policy-control">
+                    <button class="active" type="button" data-policy="Balanced">Balanced</button>
+                    <button type="button" data-policy="Quality">Quality</button>
+                    <button type="button" data-policy="Speed">Speed</button>
+                  </div>
+                </div>
+
+                <div class="inspector-section budget-section">
+                  <div class="field-label"><span>Token budget</span><strong id="budget-value">24,000</strong></div>
+                  <input id="budget-slider" class="budget-slider" type="range" min="2000" max="48000" value="24000" step="1000" />
+                  <div class="range-labels"><span>2k</span><span>48k max</span></div>
+                  <div class="budget-usage"><span>11,420 used</span><span id="budget-remaining">12,580 remaining</span></div>
+                </div>
+
+                <div class="inspector-section">
+                  <div class="field-label"><span>Model connection</span><button class="text-button mini" id="change-model-button" type="button">Change</button></div>
+                  <button class="model-select" type="button" id="model-select" data-toast="Model picker opened."><span class="provider-mark openai">◎</span><span class="model-select-copy"><strong>Codex · gpt-5</strong><small>OpenAI · Connected</small></span><span class="chevron">⌄</span></button>
+                </div>
+
+                <div class="inspector-section">
+                  <div class="field-label"><span>Tools & access</span><button class="text-button mini" type="button" data-toast="Tool permissions opened.">Edit</button></div>
+                  <div class="chip-list"><span class="access-chip"><span>⌁</span> Files</span><span class="access-chip"><span>⌘</span> Terminal</span><span class="access-chip"><span>⌘</span> Git diff</span></div>
+                </div>
+
+                <div class="inspector-footer"><div class="approval-copy"><span class="approval-check">✓</span><span><strong>Ask before applying</strong><small>Changes require your approval</small></span></div><button class="toggle on" id="approval-toggle" type="button" aria-label="Toggle approval requirement"><span></span></button></div>
+              </article>
+
+              <article class="panel connections-panel">
+                <div class="panel-heading compact-heading"><div><div class="section-kicker">Connections</div><h2>Model providers</h2></div><button class="plus-button" id="connect-button" type="button" aria-label="Connect provider">＋</button></div>
+                <div class="connection-list">
+                  <div class="connection-row"><span class="provider-mark anthropic">✦</span><span><strong>Claude</strong><small>claude-3-7-sonnet</small></span><span class="connected-dot"></span></div>
+                  <div class="connection-row"><span class="provider-mark openai">◎</span><span><strong>Codex</strong><small>gpt-5 · API</small></span><span class="connected-dot"></span></div>
+                  <div class="connection-row"><span class="provider-mark gemini">✦</span><span><strong>Gemini</strong><small>gemini-2.5-pro</small></span><span class="connected-dot"></span></div>
+                  <div class="connection-row"><span class="provider-mark local">⌂</span><span><strong>Local</strong><small>qwen3:32b · Ollama</small></span><span class="connected-dot"></span></div>
+                </div>
+                <button class="connect-link" id="connect-link" type="button">Connect another provider <span>→</span></button>
+              </article>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="provider-modal" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="modal-close" type="button" aria-label="Close">×</button>
+        <div class="modal-icon">✣</div>
+        <div class="section-kicker">New connection</div>
+        <h2 id="modal-title">Connect a model provider</h2>
+        <p>Pick a provider to add to this workspace. Credentials stay local to this prototype.</p>
+        <div class="provider-options">
+          <button type="button" data-provider="Claude"><span class="provider-mark anthropic">✦</span><span><strong>Claude</strong><small>Anthropic API</small></span><span>→</span></button>
+          <button type="button" data-provider="Codex"><span class="provider-mark openai">◎</span><span><strong>Codex</strong><small>OpenAI API</small></span><span>→</span></button>
+          <button type="button" data-provider="Gemini"><span class="provider-mark gemini">✦</span><span><strong>Gemini</strong><small>Google AI</small></span><span>→</span></button>
+          <button type="button" data-provider="Local model"><span class="provider-mark local">⌂</span><span><strong>Local model</strong><small>Ollama / LM Studio</small></span><span>→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
